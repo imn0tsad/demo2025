@@ -4,7 +4,7 @@
 
 ## Сетевая топология
 
-![image](https://github.com/user-attachments/assets/f8050ab7-75c4-4284-adcd-ef6b59b8b688)
+айпишники
 
 ## 1. Базовая настройка системы
 
