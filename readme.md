@@ -207,35 +207,7 @@ show ip ospf interface
 exit
 ```
 
-## Полезные команды для диагностики
 
-```bash
-# Проверка сетевых интерфейсов
-ip addr show
-
-# Проверка маршрутизации
-ip route show
-
-# Проверка статуса служб
-systemctl status dhcpd
-systemctl status sshd
-
-# Проверка портов
-ss -tlnp | grep :2025
-
-# Тест SSH подключения
-ssh -p 2025 sshuser@<target_ip>
-
-# Проверка DHCP аренд
-cat /var/lib/dhcp/dhcpd.leases
-
-# Проверка FRR статуса
-systemctl status frr
-
-# Проверка GRE туннеля
-ping 192.168.0.1  # с BR-RTR на HQ-RTR
-ping 192.168.0.2  # с HQ-RTR на BR-RTR
-```
 
 ## Примечания
 
