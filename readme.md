@@ -1,4 +1,4 @@
-# Demo 2025 - System Administration Exam
+# Demo2025
 ## Сетевая топология
 
 айпишники
