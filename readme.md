@@ -238,7 +238,7 @@ df -h | grep /mnt/raid5
 > /dev/md0  2.0G  24K  1.9G  1%  /mnt/raid5
 > ```
 
-#### Настройка NFS на HQ-SRV
+#### Настройка NFS SERVER на HQ-SRV
 ```
 mkdir /mnt/raid5/nfs
 
@@ -249,8 +249,29 @@ nano /etc/exports
 /mnt/raid5/nfs 172.16.0.0/28(rw,no_root_squash)
 
 exportfs -arv
-```
 
+systemctl enable --now nfs-server
+```
+#### Настройка NFS CLIENT (вроде на hq-cli смотрите по заданию кому надо монтировать)
+```
+mkdir /mnt/nfs
+
+chmod 777 /mnt/nfs
+
+nano /etc/fstab
+#добавляем строчку где 172.16.0.2 айпи nfs сервера 
+172.16.0.2:/mnt/raid5/nfs  /mnt/nfs  nfs  defaults  0  0 
+
+mount -a
+```
+Проверяем монтирование:
+```yml
+df -h | grep /mnt/raid5
+```
+> Вывод должен быть:
+> ```yml
+> 172.16.0.2:/mnt/raid5/nfs  2,0G  0  1,9G  0%  /mnt/nfs
+> ```
 ## Примечания
 
 
