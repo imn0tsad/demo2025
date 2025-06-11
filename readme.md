@@ -10,27 +10,37 @@
 hostnamectl hostname "имя_машины"
 exec bash
 ```
-
-## 2. Создание пользователя sshuser и net_admin (на HQ-SRV и BR-SRV)
-
+## 2. Создание пользователя net_admin (HQ-RTR и BR-RTR)
 ```bash
-# Создание пользователей
-useradd -m -u 1010 sshuser
+# Создание пользователя
 adduser net_admin
 
 # Установка пароля 
-passwd sshuser
 passwd net_admin
 
 # Добавление в sudoers без пароля
 nano /etc/sudoers
-# Добавить строки:
-sshuser ALL=(ALL:ALL)NOPASSWD:ALL
+# Добавить строку:
 net_admin ALL=(ALL:ALL)NOPASSWD:ALL
 
 ```
+## 3. Создание пользователя sshuser (на HQ-SRV и BR-SRV)
 
-## 3. Настройка SSH (на HQ-SRV и BR-SRV)
+```bash
+# Создание пользователя
+useradd -m -u 1010 sshuser
+
+# Установка пароля 
+passwd sshuser
+
+# Добавление в sudoers без пароля
+nano /etc/sudoers
+# Добавить строку:
+sshuser ALL=(ALL:ALL)NOPASSWD:ALL
+
+```
+
+## 4. Настройка SSH (на HQ-SRV и BR-SRV)
 
 ### Создание баннера
 ```bash
@@ -58,7 +68,7 @@ AllowUsers sshuser
 systemctl restart sshd.service
 ```
 
-## 4. Настройка DHCP сервера (на HQ-RTR)
+## 5. Настройка DHCP сервера (на HQ-RTR)
 
 ### Указание интерфейса для DHCP
 ```bash
@@ -93,7 +103,7 @@ subnet 172.16.0.0 netmask 255.255.255.192 {
 systemctl enable --now dhcpd
 ```
 
-## 5. Настройка маршрутизации
+## 6. Настройка маршрутизации
 
 ### На ISP - включение IP forwarding
 ```bash
@@ -103,7 +113,7 @@ nano /etc/net/sysctl.conf
 net.ipv4.ip_forward = 1
 ```
 
-## 6. Настройка GRE туннелей
+## 7. Настройка GRE туннелей
 ### На BR-RTR (Branch Router)
 **Сетевые настройки:**
 - Device: tun1
