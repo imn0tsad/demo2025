@@ -233,7 +233,7 @@ mount -a
 ```yml
 df -h | grep /mnt/raid5
 ```
-> Вывод:
+> Вывод должен быть:
 > ```yml
 > /dev/md0  2.0G  24K  1.9G  1%  /mnt/raid5
 > ```
