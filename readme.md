@@ -266,7 +266,7 @@ mount -a
 ```
 Проверяем монтирование:
 ```yml
-df -h | grep /mnt/raid5
+df -h | grep /mnt/r
 ```
 > Вывод должен быть:
 > ```yml
