@@ -280,7 +280,7 @@ mount -a
 ```
 Проверяем монтирование:
 ```yml
-df -h | grep /mnt/r
+df -h | grep /mnt/nfs
 ```
 > Вывод должен быть:
 > ```yml
