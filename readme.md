@@ -238,7 +238,18 @@ df -h | grep /mnt/raid5
 > /dev/md0  2.0G  24K  1.9G  1%  /mnt/raid5
 > ```
 
+#### Настройка NFS на HQ-SRV
+```
+mkdir /mnt/raid5/nfs
 
+chmod 766 /mnt/raid5/nfs
+
+nano /etc/exports
+#добавляем строчку ниже | ВАЖНО ВМЕСТО 172.16.0.0/28 указывайте подсеть которая будет на демо
+/mnt/raid5/nfs 172.16.0.0/28(rw,no_root_squash)
+
+exportfs -arv
+```
 
 ## Примечания
 
