@@ -205,10 +205,43 @@ exit
 ```
 
 ### RAID 5 на HQ-SRV:
+```bash
+#команда ниже должна вывести 4 диска sda, sdb, sdc, sdd 
+lsblk
+
+#Создание raid5
+sudo mdadm --zero-superblock /dev/sd[b-d]
+
+mkfs -t ext4 /dev/md0
+
+mkdir /etc/mdadm
+
+echo "DEVICE partitions" > /etc/mdadm/mdadm.conf
+
+mdadm --detail --scan | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.con
+
+mkdir /mnt/raid5
+
+nano /etc/fstab
+#добавить эту строчку в fstab
+/dev/md0  /mnt/raid5  ext4  defaults  0  0
+
+mount -a
+```
+
+Проверяем монтирование:
+```yml
+df -h
+```
+> Вывод:
+> ```yml
+> /dev/md0  2.0G  24K  1.9G  1%  /mnt/raid5
+> ```
+
 
 
 ## Примечания
 
-- IP-адреса соответствуют схеме сети
-- Проверить firewall
+
+- отключить firewall
 - 
