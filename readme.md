@@ -157,7 +157,7 @@ conf t
 router ospf
 passive-interface default
 network 192.168.0.0/24 area 0
-network 172.16.0.0/26 area 0
+network 172.16.0.0/26 area 0 # указать HQ-IN подсеть
 exit
 interface tun1
 no ip ospf network broadcast
@@ -183,7 +183,7 @@ conf t
 router ospf
 passive-interface default
 network 192.168.0.0/24 area 0
-network 172.16.6.0/27 area 0  # BR подсеть
+network 172.16.6.0/27 area 0  # указать BR-IN подсеть
 exit
 interface tun1
 no ip ospf network broadcast
