@@ -204,6 +204,7 @@ show ip ospf interface
 exit
 ```
 
+### RAID 5 на HQ-SRV:
 
 
 ## Примечания
