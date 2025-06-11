@@ -11,19 +11,23 @@ hostnamectl hostname "имя_машины"
 exec bash
 ```
 
-## 2. Создание пользователя sshuser (на HQ-SRV и BR-SRV)
+## 2. Создание пользователя sshuser и net_admin (на HQ-SRV и BR-SRV)
 
 ```bash
-# Создание пользователя с UID 1010
+# Создание пользователей
 useradd -m -u 1010 sshuser
+adduser net_admin
 
-# Установка пароля
+# Установка пароля 
 passwd sshuser
+passwd net_admin
 
 # Добавление в sudoers без пароля
 nano /etc/sudoers
-# Добавить строку:
+# Добавить строки:
 sshuser ALL=(ALL:ALL)NOPASSWD:ALL
+net_admin ALL=(ALL:ALL)NOPASSWD:ALL
+
 ```
 
 ## 3. Настройка SSH (на HQ-SRV и BR-SRV)
