@@ -66,42 +66,8 @@ AllowUsers sshuser
 systemctl restart sshd.service
 ```
 
-## 5. Настройка DHCP сервера (на HQ-RTR)
 
-### Указание интерфейса для DHCP
-```bash
-nano /etc/sysconfig/dhcpd
-```
-```
-DHCPARGS=ens35
-```
-
-### Создание конфигурационного файла
-```bash
-cp /etc/dhcp/dhcpd.conf{.example,}
-nano /etc/dhcp/dhcpd.conf
-```
-
-Содержимое файла:
-```
-option domain-name "au-team.irpo";
-option domain-name-servers 172.16.0.2;
-default-lease-time 6000;
-max-lease-time 72000;
-authoritative;
-
-subnet 172.16.0.0 netmask 255.255.255.192 {
-    range 172.16.0.3 172.16.0.8;
-    option routers 172.16.0.1;
-}
-```
-
-### Запуск и автозагрузка службы
-```bash
-systemctl enable --now dhcpd
-```
-
-## 6. Настройка маршрутизации
+## 5. Настройка маршрутизации
 
 ### На ISP - включение IP forwarding
 ```bash
@@ -110,8 +76,7 @@ nano /etc/net/sysctl.conf
 ```
 net.ipv4.ip_forward = 1
 ```
-
-## 7. Настройка GRE туннелей
+## 6. Настройка GRE туннелей
 ### На BR-RTR (Branch Router)
 **Сетевые настройки:**
 - Device: tun1
@@ -132,7 +97,11 @@ net.ipv4.ip_forward = 1
   - IP: 192.168.0.1/24
   - Gateway: 192.168.0.2
 
-**Если GRE тунель не работает пропинговать с HQ-R BR-R по его айпи, если пинги не проходят то перезаагрузить машину ISP, также можно попробовать временно отключить другие сетевые интерфейсы (hqin и brin)**
+**Если GRE тунель не работает пропинговать с HQ-R BR-R по его айпи, если пинги не проходят то перезаагрузить машину ISP, также если это не помогло то можно попробовать временно отключить другие сетевые интерфейсы (hqin и brin)**
+
+
+
+
 ## 7. Настройка OSPF маршрутизации
 
 ### На HQ-SRV и BR-SRV - активация FRR
@@ -215,7 +184,40 @@ show ip ospf interface
 # Выход из консоли
 exit
 ```
+## 8. Настройка DHCP сервера (на HQ-RTR)
 
+### Указание интерфейса для DHCP
+```bash
+nano /etc/sysconfig/dhcpd
+```
+```
+DHCPARGS=ens35
+```
+
+### Создание конфигурационного файла
+```bash
+cp /etc/dhcp/dhcpd.conf{.example,}
+nano /etc/dhcp/dhcpd.conf
+```
+
+Содержимое файла:
+```
+option domain-name "au-team.irpo";
+option domain-name-servers 172.16.0.2;
+default-lease-time 6000;
+max-lease-time 72000;
+authoritative;
+
+subnet 172.16.0.0 netmask 255.255.255.192 {
+    range 172.16.0.3 172.16.0.8;
+    option routers 172.16.0.1;
+}
+```
+
+### Запуск и автозагрузка службы
+```bash
+systemctl enable --now dhcpd
+```
 ### RAID 5 на HQ-SRV:
 ```bash
 #команда ниже должна вывести 4 диска sda, sdb, sdc, sdd 
