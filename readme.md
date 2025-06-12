@@ -291,7 +291,7 @@ df -h | grep /mnt/nfs
 
 ### Настройка chrony на HQ srv
 
-Правим файл через nano **`/etc/chrony.conf`** :
+Правим файл командой  **`nano /etc/chrony.conf`** :
 ```yml
 # Use public servers from the pool.ntp.org project.
 # Please consider joining the pool (https://www.pool.ntp.org/join.html
@@ -304,7 +304,21 @@ allow 0/0
 ```
 > ![image](https://github.com/user-attachments/assets/1a80b134-5e9e-4310-9a1a-1c1eca654200)
 
+Запускаем и добавляем в автозагрузку утилиту **chronyd**:
+```yml
+systemctl enable --now chronyd
+```
 
+Проверяем работоспособность (вывод должен быть как в примере)
+```yml
+chronyc sources
+```
+> Вывод:
+> ```yml
+> MS Name/IP address        Stratum  Poll  Reach  LastRx  Last  sample
+> =============================================================================
+> ^/ localhost.localdomain  0        8     377    -       +0ns[  +0ns] +/-  0ns
+> ```
 ## Примечания
 
 
