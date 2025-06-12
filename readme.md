@@ -6,6 +6,7 @@
 ```bash
 hostnamectl hostname "имя_машины"
 exec bash
+# НЕ ЗАБУДЬТЕ ОТКЛЮЧИТЬ  firewall  командой systemctl disable firewalld --now  (если не отключить gre и ospf могут не работать) вроде на  hq-r
 ```
 
 ## 2. Создание пользователя net_admin (HQ-RTR и BR-RTR)
@@ -331,5 +332,5 @@ chronyc tracking | grep Stratum
 ## Примечания
 
 
-- отключить firewall
+
 - 
