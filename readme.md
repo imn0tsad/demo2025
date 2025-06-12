@@ -132,6 +132,7 @@ no ip ospf passive
 exit
 do wr
 exit
+exit
 ```
 
 ### Настройка TTL для туннеля
@@ -157,6 +158,7 @@ no ip ospf network broadcast
 no ip ospf passive
 exit
 do wr
+exit
 exit
 
 # Настройка TTL для туннеля
