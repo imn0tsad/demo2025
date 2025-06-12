@@ -137,16 +137,15 @@ exit
 do wr
 exit
 exit
-```
 
-### Настройка TTL для туннеля
-```bash
+# Настройка TTL для туннеля
 nmcli connection edit tun1
 set ip-tunnel.ttl 64
 save
 quit
 systemctl restart frr
 ```
+
 
 ### На BR-RTR - аналогичная настройка
 ```bash
