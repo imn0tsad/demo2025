@@ -1,6 +1,6 @@
 # Demo2025
+<br>
 <br/>
-
 
 ## 1. Базовая настройка системы
 
@@ -9,7 +9,7 @@
 hostnamectl hostname "имя_машины"
 exec bash
 ```
-<br/>
+
 ## 2. Создание пользователя net_admin (HQ-RTR и BR-RTR)
 ```bash
 # Создание пользователя
@@ -24,7 +24,7 @@ nano /etc/sudoers
 net_admin ALL=(ALL:ALL)NOPASSWD:ALL
 
 ```
-<br/>
+
 ## 3. Создание пользователя sshuser (на HQ-SRV и BR-SRV)
 
 ```bash
@@ -40,7 +40,7 @@ nano /etc/sudoers
 sshuser ALL=(ALL:ALL)NOPASSWD:ALL
 
 ```
-<br/>
+
 ## 4. Настройка SSH (на HQ-SRV и BR-SRV)
 
 ### Создание баннера
