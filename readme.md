@@ -288,6 +288,22 @@ df -h | grep /mnt/nfs
 > ```yml
 > 172.16.0.2:/mnt/raid5/nfs  2,0G  0  1,9G  0%  /mnt/nfs
 > ```
+
+### Настройка chrony на HQ srv
+
+Правим файл через nano **`/etc/chrony.conf`** :
+```yml
+# Use public servers from the pool.ntp.org project.
+# Please consider joining the pool (https://www.pool.ntp.org/join.html
+#pool pool.ntp.org iburst
+
+server 127.0.0.1 iburst prefer
+hwtimestamp *
+local stratum 5
+allow 0/0
+```
+> ВСЕ ЛИШНИЕ СТРОКИ КОТОРЫЕ У ВАС БУДУТ В ФАЙЛЕ УДАЛИТЬ (МОЖНО БЫСТРО УДАЛЯТЬ СТРОКИ В NANO ЧЕРЕЗ ctrl + k) 
+
 ## Примечания
 
 
