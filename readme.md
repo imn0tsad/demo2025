@@ -319,6 +319,14 @@ chronyc sources
 > =============================================================================
 > ^/ localhost.localdomain  0        8     377    -       +0ns[  +0ns] +/-  0ns
 > ```
+```yml
+chronyc tracking | grep Stratum
+```
+> Вывод:
+> ```yml
+> Stratum: 5
+> ```
+
 ## Примечания
 
 
