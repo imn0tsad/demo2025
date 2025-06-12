@@ -302,7 +302,8 @@ hwtimestamp *
 local stratum 5
 allow 0/0
 ```
-> ВСЕ ЛИШНИЕ СТРОКИ КОТОРЫЕ У ВАС БУДУТ В ФАЙЛЕ УДАЛИТЬ (МОЖНО БЫСТРО УДАЛЯТЬ СТРОКИ В NANO ЧЕРЕЗ ctrl + k) 
+> ![image](https://github.com/user-attachments/assets/1a80b134-5e9e-4310-9a1a-1c1eca654200)
+
 
 ## Примечания
 
