@@ -79,7 +79,9 @@ net.ipv4.ip_forward = 1
 ## 6. Настройка GRE туннелей
 ### На BR-RTR (Branch Router)
 **Сетевые настройки:**
+- Profile name: tun1
 - Device: tun1
+- Mode: GRE
 - Parent: ens34
 - Local IP: 172.16.5.2
 - Remote IP: 172.16.4.2
@@ -89,7 +91,9 @@ net.ipv4.ip_forward = 1
 
 ### На HQ-RTR (Headquarters Router)
 **Сетевые настройки:**
+- Profile name: tun1
 - Device: tun1
+- Mode: GRE
 - Parent: ens34
 - Local IP: 172.16.4.2
 - Remote IP: 172.16.5.2
@@ -174,14 +178,8 @@ systemctl restart frr
 # Вход в FRR консоль
 vtysh
 
-# Проверка соседей OSPF
+# Проверка соседей OSPF, если ничего не вывело то забиваем и переходим к следующему заданию
 show ip ospf neighbor
-
-# Проверка таблицы маршрутизации OSPF
-show ip ospf route
-
-# Проверка интерфейсов OSPF
-show ip ospf interface
 
 # Выход из консоли
 exit
