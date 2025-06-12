@@ -196,7 +196,8 @@ DHCPARGS=ens35
 
 ### Создание конфигурационного файла
 ```bash
-cp /etc/dhcp/dhcpd.conf{.example,}
+# в файле /etc/dhcp/dhcpd.conf.example показан пример dhcp
+
 nano /etc/dhcp/dhcpd.conf
 ```
 
@@ -209,8 +210,8 @@ max-lease-time 72000;
 authoritative;
 
 subnet 172.16.0.0 netmask 255.255.255.192 {
-    range 172.16.0.3 172.16.0.8;
-    option routers 172.16.0.1;
+  range 172.16.0.3 172.16.0.8;
+  option routers 172.16.0.1;
 }
 ```
 
