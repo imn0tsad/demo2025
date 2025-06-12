@@ -170,6 +170,8 @@ set ip-tunnel.ttl 64
 save
 quit
 systemctl restart frr
+
+#ТЕПЕРЬ ПЕРЕЗАГРУЗИТЕ HQ-R и BR-R
 ```
 
 ### Проверка OSPF
