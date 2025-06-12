@@ -104,7 +104,7 @@ net.ipv4.ip_forward = 1
 
 ## 7. Настройка OSPF маршрутизации
 
-### На HQ-SRV и BR-SRV - активация FRR
+### На HQ-R и BR-R - активация FRR
 ```bash
 nano /etc/frr/daemons
 ```
