@@ -80,7 +80,7 @@ nano /etc/net/sysctl.conf
 net.ipv4.ip_forward = 1
 
 ```
-#после этого нужнно перезагрузить ISP
+## после этого нужнно перезагрузить ISP
 ```
 reboot
 ```
