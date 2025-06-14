@@ -7,6 +7,7 @@
 hostnamectl hostname "имя_машины"
 exec bash
 # НЕ ЗАБУДЬТЕ ОТКЛЮЧИТЬ  firewall  командой systemctl disable firewalld --now  (если не отключить gre и ospf могут не работать) вроде на  hq-r
+
 ```
 
 ## 2. Создание пользователя net_admin (HQ-RTR и BR-RTR)
@@ -77,6 +78,11 @@ nano /etc/net/sysctl.conf
 ```
 ```
 net.ipv4.ip_forward = 1
+
+```
+#после этого нужнно перезагрузить ISP
+```
+reboot
 ```
 ## 6. Настройка GRE туннелей
 ### На BR-RTR (Branch Router)
