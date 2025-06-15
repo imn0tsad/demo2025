@@ -2,8 +2,12 @@
 ![image](https://github.com/user-attachments/assets/d348dfa1-4696-463c-b001-ba79811f839c)
 в таком случае айпишники будут такие
 ```ISP:
-isp-hq -
-![image](https://github.com/user-attachments/assets/dabb5390-16e4-4ab4-a30c-d3acbf45ae5d)
-
+isp-hq - 172.16.4.1/28 gateway оставляем пустым
+isp-br - 172.16.5.1/28 gateway оставляем пустым
 ```
-
+```HQ-R
+isp-hq - 172.16.4.2/28 gateway 172.16.4.1  (айпи машины isp)
+```
+```BR-R
+isp-br - 172.16.5.2/28 gateway 172.16.5.1  (айпи машины isp)
+```
