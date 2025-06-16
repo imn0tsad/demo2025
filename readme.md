@@ -234,7 +234,7 @@ systemctl enable --now dhcpd
 lsblk
 
 #Создание raid5
-sudo mdadm --zero-superblock /dev/sd[b-d]
+mdadm --zero-superblock /dev/sd[b-d]
 
 mkfs -t ext4 /dev/md0
 
