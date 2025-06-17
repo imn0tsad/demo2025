@@ -91,8 +91,8 @@ reboot
 - Device: tun1
 - Mode: GRE
 - Parent: ens34
-- Local IP: 172.16.5.2
-- Remote IP: 172.16.4.2
+- Local IP: 172.20.5.2
+- Remote IP: 172.20.4.2
 - IPv4 Configuration: Manual
   - IP: 192.168.0.2/24
   - Gateway: 192.168.0.1
@@ -103,8 +103,8 @@ reboot
 - Device: tun1
 - Mode: GRE
 - Parent: ens34
-- Local IP: 172.16.4.2
-- Remote IP: 172.16.5.2
+- Local IP: 172.20.4.2
+- Remote IP: 172.20.5.2
 - IPv4 Configuration: Manual
   - IP: 192.168.0.1/24
   - Gateway: 192.168.0.2
@@ -136,7 +136,7 @@ conf t
 router ospf
 passive-interface default
 network 192.168.0.0/24 area 0
-network 172.16.0.0/26 area 0 # указать HQ-IN подсеть
+network 172.20.0.0/26 area 0 # указать HQ-IN подсеть
 exit
 interface tun1
 no ip ospf network broadcast
