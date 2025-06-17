@@ -29,7 +29,7 @@ net_admin ALL=(ALL:ALL)NOPASSWD:ALL
 
 ```bash
 # Создание пользователя
-useradd -m -u 1010 sshuser
+useradd -m -u 1020 sshuser
 
 # Установка пароля 
 passwd sshuser
@@ -162,7 +162,7 @@ conf t
 router ospf
 passive-interface default
 network 192.168.0.0/24 area 0
-network 172.16.6.0/27 area 0  # указать BR-IN подсеть
+network 172.20.6.0/27 area 0  # указать BR-IN подсеть
 exit
 interface tun1
 no ip ospf network broadcast
@@ -218,9 +218,9 @@ default-lease-time 6000;
 max-lease-time 72000;
 authoritative;
 
-subnet 172.16.0.0 netmask 255.255.255.192 {
-  range 172.16.0.3 172.16.0.8;
-  option routers 172.16.0.1;
+subnet 172.20.0.0 netmask 255.255.255.192 {
+  range 172.20.0.3 172.20.0.8;
+  option routers 172.20.0.1;
 }
 ```
 
@@ -242,7 +242,7 @@ mkdir /etc/mdadm
 
 echo "DEVICE partitions" > /etc/mdadm/mdadm.conf
 
-mdadm --detail --scan | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.con
+mdadm --detail --scan | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.conf
 
 mkdir /mnt/raid5
 
